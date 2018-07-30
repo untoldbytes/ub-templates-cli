@@ -1,12 +1,12 @@
 const fs = require('fs-extra')
 const path = require('path')
 const download = require('download')
-const Configstore = require('configstore')
+const ConfigStore = require('configstore')
 
 const files = require('../files')
 const packageJSON = require('../../package.json')
 
-const config = new Configstore(packageJSON.name)
+const config = new ConfigStore(packageJSON.name)
 const tempDir = path.join(process.cwd(), 'ub-temp')
 
 const initialize = (directory, setup) => new Promise((resolve, reject) => {

@@ -1,11 +1,11 @@
 const program = require('commander')
 const download = require('download')
-const Configstore = require('configstore')
+const ConfigStore = require('configstore')
 const packageJSON = require('../../package.json')
 
-const config = new Configstore(packageJSON.name)
+const config = new ConfigStore(packageJSON.name)
 
-const templateRegistry = 'https://ub-registry.firebaseapp.com/templates/index.json'
+const templateRegistry = 'https://ub-templates-registry.firebaseapp.com/templates/index.json'
 
 download(templateRegistry)
   .then(data => config.set('templates', JSON.parse(data.toString())))
