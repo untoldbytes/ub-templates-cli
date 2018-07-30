@@ -1,1 +1,2 @@
 # Add a network check to reject if offline
+# The options in inquirer need to be generated on the fly

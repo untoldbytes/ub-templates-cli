@@ -4,8 +4,8 @@ const validateNPMPackageName = require('validate-npm-package-name')
 
 const INVALID_NAME = 'The provided name is not a valid npm package name'
 const INVALID_VERSION = 'The provided version is not a valid semver version number'
-const DEFAULT_PROJECT_TYPE = 'web-client'
-const PROJECT_TYPE_WEB = 'web-client'
+const PROJECT_TYPE_PWA = 'pwa'
+const DEFAULT_PROJECT_TYPE = PROJECT_TYPE_PWA
 
 // get the choices from ub-registry
 const setupQuestions = [
@@ -26,26 +26,23 @@ const setupQuestions = [
     name: 'project_type',
     message: 'What is the kind of project you are building?',
     choices: [
-      'web-client',
+      'pwa',
       'backend',
-      'windows-client',
-      'linux-client',
-      'mac-client',
-      'android-client',
-      'ios-client'
+      'desktop',
+      'mobile'
     ],
     default: DEFAULT_PROJECT_TYPE
   },
   {
     type: 'list',
     name: 'template',
-    message: 'Web client template to choose',
+    message: 'PWA template to choose',
     choices: [
-      'web-client/fast-pwa-react',
-      'web-client/some-future-template'
+      'pwa/fast-pwa-react',
+      'pwa/some-future-template'
     ],
     default: DEFAULT_PROJECT_TYPE,
-    when: answers => answers.project_type === PROJECT_TYPE_WEB
+    when: answers => answers.project_type === PROJECT_TYPE_PWA
   }
 ]
 
